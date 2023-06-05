@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7 mx-auto shadow">
+            <div class="row">
+                <div class="col-6 bg-success text-white">
+                    <h5 class="mb-3">Welcome to Your Store</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ad tenetur, veritatis deleniti voluptatem exercitationem veniam perspiciatis sapiente officia atque rem voluptates at non praesentium impedit! Dolorum rem animi incidunt.
+                    </p>
+                </div>
+                <div class="col-6 p-3" >
+                    <form [formGroup]="userForm" (ngSubmit)="signUp()">
+                        <input type="text" placeholder="First Name" name="first_name" class="form-control mb-2" formControlName="first_name"
+                        [class.isvalid]="userForm.get('first_name')?.valid && userForm.get('first_name')?.touched"
+                        [class.is-invalid]="userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched"
+                        >
+                        <div class="text-danger" *ngIf="userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched">
+                        
+                           <span *ngIf="userForm.get('first_name')?.errors?.['required']">
+                                Input is required
+                           </span>
+                           <span *ngIf="userForm.get('first_name')?.errors?.['maxlength']">
+                                The maximum lenght is 10
+                           </span>
+                        </div>
+
+                        <input type="text" placeholder="Last Name" name="last_name" class="form-control mb-2" formControlName="last_name">
+
+                        <input type="number" placeholder="Phone Number" name="phone_no" class="form-control mb-2" formControlName="phone_no" 
+                        [class.isvalid]="userForm.get('phone_no')?.valid && userForm.get('phone_no')?.touched"
+                        [class.is-invalid]="userForm.get('phone_no')?.invalid && userForm.get('phone_no')?.touched">
+                        <div class="text-danger" *ngIf="userForm.get('phone_no')?.invalid && userForm.get('phone_no')?.touched">
+                        
+                            <span *ngIf="userForm.get('phone_no')?.errors?.['noCountruCode']">
+                                 Use plus and provide country code
+                            </span>
+                         </div>
+ 
+
+                        <input type="text" placeholder="Address" name="address" class="form-control mb-2" formControlName="address">
+                        <input type="email" placeholder="Email" name="email" class="form-control mb-2" formControlName="email"
+
+                        [class.isvalid]="userForm.get('email')?.valid && userForm.get('email')?.touched"
+                        [class.is-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+                        >
+                        <div class="text-danger" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                            It should be an email
+                        </div>
+
+                        <input type="text" placeholder="Password" name="Password" class="form-control mb-2" formControlName="password">
+                        <button class="btn btn-outline-dark" type="submit" [disabled]="userForm.invalid">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

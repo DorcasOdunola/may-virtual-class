@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7 mx-auto shadow">
+            <div class="row">
+                <div class="col-6 bg-dark text-white">
+                    <h5 class="mb-3">Welcome to Your Store</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ad tenetur, veritatis deleniti voluptatem exercitationem veniam perspiciatis sapiente officia atque rem voluptates at non praesentium impedit! Dolorum rem animi incidunt.
+                    </p>
+                </div>
+                <div class="col-6 p-3">
+                    <form>
+                        <input type="email" placeholder="Store's Email" name="Store Email" class="form-control mb-2" [(ngModel)]="store_email">
+                        <input type="text" placeholder="Store's Password" name="Store Password" class="form-control mb-2" [(ngModel)]="store_password">
+                        <br>
+                        <i class="text-danger">{{message}}</i><br>
+                        <button class="btn btn-outline-dark" (click)="storeSignIn()">Sign In</button> <br>
+                        <i>Don't have an account <a routerLink="/store/signup">Sign Up</a></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

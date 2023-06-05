@@ -1,0 +1,40 @@
+<div class="contianer">
+    <div class="row">
+        <div class="col-6 mx-auto justify-content-center p-3 shadow">
+            <h3 class="text-center text-muted">ADD PRODUCT</h3>
+            <input type="text" class="form-control mb-3" placeholder="Product Name" [(ngModel)]="product_name">
+            <input type="text" class="form-control mb-3" placeholder="Product Description" [(ngModel)]="product_desc">
+            <input type="text" class="form-control mb-3" placeholder="Product Price" [(ngModel)]="product_price">
+            <input type="text" class="form-control mb-3" placeholder="Product Quantity" [(ngModel)]="product_quantity">
+            <button (click)="addProduct()" class="btn btn-success">ADD PRODUCT</button>
+        </div>
+        <div class="col-6">
+            <p>{{product_obj.product_name}}</p>
+            <p *ngIf="productArray.length <= 0">
+                No Product yet
+            </p>
+        
+        
+            <div class="shadow d-flex p-2 m-2" *ngFor="let i = index;let product of productArray">
+                <p>{{i + 1}}</p>
+                <p>{{product.product_name}}</p>
+                <button class="btn btn-warning" routerLink="/store/product/{{i}}">View</button>
+                <button class="btn btn-success">Edit</button>
+                <button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button>
+            </div>
+        </div>
+           
+    </div>
+
+     <!-- productArray.map ((each)  => {
+        
+            }) -->
+        
+        
+            <!-- onclick - js
+        </div>
+        
+        onClick - react
+        @click - vue
+        (click) - angular  -->
+</div>
