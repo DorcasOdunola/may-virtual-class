@@ -8,12 +8,14 @@ import { StoreSigninComponent } from './store-signin/store-signin.component';
 import { storeGuard } from './guards/store.guard';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+import { MaterialComponent } from './material/material.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/signin", pathMatch: 'full'},
   // {path: "", component: HomeComponent},
   {path: "signin", component: SigninComponent},
   {path: "signup", component: UserSignupComponent},
+  {path: "material", component: MaterialComponent},
   {path: "store", children: [
     {path: "", redirectTo: "/store/signin", pathMatch: 'full'},
     {path: "signup", component: StoreSignupComponent},

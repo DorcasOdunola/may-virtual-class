@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { number } from 'yup';
+
 
 @Component({
   selector: 'app-product',

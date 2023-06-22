@@ -11,6 +11,13 @@ import { StoreSignupComponent } from './store-signup/store-signup.component';
 import { StoreSigninComponent } from './store-signin/store-signin.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+import { PhoneValidateDirective } from './phone-validate.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponent } from './material/material.component';
+// import {MatButtonModule} from '@angular/material/button';
+// import { MatIconModule } from '@angular/material/icon';
+import { DialogComponent } from './dialog/dialog.component';
+import { MaterialsModule } from './materials.module';
 
 @NgModule({
   declarations: [
@@ -21,13 +28,20 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
     StoreSignupComponent,
     StoreSigninComponent,
     ViewProductComponent,
-    UserSignupComponent
+    UserSignupComponent,
+    PhoneValidateDirective,
+    MaterialComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    // MatButtonModule,
+    // MatIconModule,
+    MaterialsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

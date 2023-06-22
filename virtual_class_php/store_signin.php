@@ -25,6 +25,7 @@
                                 require "dbCrend.php";
                                 $email = $_POST['email'];
                                 $password = $_POST['password'];
+                                session_start();
 
                                 $query = "SELECT * FROM store WHERE email = '$email'";
                                     $insert = $connectDb->query($query);
@@ -36,7 +37,8 @@
                                     $hashedPassword = $store['password'];
                                     $verify_password = password_verify($password, $hashedPassword);
                                     if ($verify_password) {
-                                        echo "<div class='alert alert-success'>You are signed In Succesfully</div>";
+                                       $_SESSION['store_id'] = $store['store_id'];
+                                       header("Location: products.php");
                                     } else {
                                         echo "<div class='alert alert-danger'>Incorrect Password!</div>";
                                     }

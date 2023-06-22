@@ -26,13 +26,16 @@
 
                         <input type="text" placeholder="Last Name" name="last_name" class="form-control mb-2" formControlName="last_name">
 
-                        <input type="number" placeholder="Phone Number" name="phone_no" class="form-control mb-2" formControlName="phone_no" 
+                        <input type="text" placeholder="Phone Number" name="phone_no" class="form-control mb-2" formControlName="phone_no" 
                         [class.isvalid]="userForm.get('phone_no')?.valid && userForm.get('phone_no')?.touched"
                         [class.is-invalid]="userForm.get('phone_no')?.invalid && userForm.get('phone_no')?.touched">
                         <div class="text-danger" *ngIf="userForm.get('phone_no')?.invalid && userForm.get('phone_no')?.touched">
                         
-                            <span *ngIf="userForm.get('phone_no')?.errors?.['noCountruCode']">
-                                 Use plus and provide country code
+                            <span *ngIf="userForm.get('phone_no')?.errors?.['noCountryCode']">
+                                Use plus and provide country code
+                            </span>
+                            <span *ngIf="userForm.get('phone_no')?.errors?.['wrongPosition']">
+                                Place your plus in the right position
                             </span>
                          </div>
  

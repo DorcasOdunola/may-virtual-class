@@ -33,10 +33,12 @@ export class UserSignupComponent {
   validatePhone(control: AbstractControl) : {[key: string]: any} | void {
     if (control.value) {
       console.log(control.value);
-      // console.log(control.value.includes("+"));
-      // if (control.value.includes("+") == -1) {
-      //   return {noCountryCode: true}
-      // }
+      let value = control.value.toString();
+      if (value.indexOf("+") == -1) {
+        return {noCountryCode: true}
+      } else if (value.indexOf("+") > 0) {
+        return {wrongPosition: true}
+      }
     }
   }
 

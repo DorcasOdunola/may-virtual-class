@@ -9,13 +9,34 @@
                     </p>
                 </div>
                 <div class="col-6 p-3">
-                    <form>
-                        <input type="text" placeholder="Store's Name" name="Store Name" class="form-control mb-2" [(ngModel)]="store_name">
-                        <input type="number" placeholder="Store's Phone Number" name="Store Phone Number" class="form-control mb-2" [(ngModel)]="store_phone_no">
-                        <input type="text" placeholder="Store's Address" name="Store Address" class="form-control mb-2" [(ngModel)]="store_address">
-                        <input type="email" placeholder="Store's Email" name="Store Email" class="form-control mb-2" [(ngModel)]="store_email">
-                        <input type="text" placeholder="Store's Password" name="Store Password" class="form-control mb-2" [(ngModel)]="store_password">
-                        <button class="btn btn-outline-dark" (click)="storeSignUp()">Sign Up</button>
+                    <form #storeForm="ngForm">
+                        <input type="text" placeholder="Store's Name" name="Store Name" class="form-control mb-2" [(ngModel)]="store_name" #storeName="ngModel" minlength="5" required="true"
+                        [class.is-valid]="storeName.valid && storeName.touched"
+                        [class.is-invalid]="storeName.invalid && storeName.touched">
+                        <div class="text-danger" *ngIf="storeName.invalid && storeName.touched">
+                        
+                            <span *ngIf="storeName?.errors?.['required']">
+                                 Input is required
+                            </span>
+                            <span *ngIf="storeName?.errors?.['minlength']">
+                                 The maximum lenght is 5
+                            </span>
+                         </div>
+
+                        <input type="text" placeholder="Store's Phone Number" name="Store Phone Number" class="form-control mb-2" [(ngModel)]="store_phone_no" appPhoneValidate #storePhoneNo="ngModel"
+                        [class.is-valid]="storePhoneNo.valid && storePhoneNo.touched"
+                        [class.is-invalid]="storePhoneNo.invalid && storePhoneNo.touched">
+                        <span *ngIf="storePhoneNo?.errors?.['noCountryCode']">
+                            Use plus and provide country code
+                        </span>
+                        <span *ngIf="storePhoneNo?.errors?.['wrongPosition']">
+                            Place your plus in the right position
+                        </span>
+
+                        <input type="text" placeholder="Store's Address" name="Store Address" class="form-control mb-2" [(ngModel)]="store_address" #storeAddress="ngModel">
+                        <input type="email" placeholder="Store's Email" name="Store Email" class="form-control mb-2" [(ngModel)]="store_email" #storeEmail="ngModel">
+                        <input type="text" placeholder="Store's Password" name="Store Password" class="form-control mb-2" [(ngModel)]="store_password" #storePassword="ngModel">
+                        <button class="btn btn-outline-dark" (click)="storeSignUp()" [disabled]="storeForm.invalid">Sign Up</button>
                     </form>
                 </div>
             </div>
